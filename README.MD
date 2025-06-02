@@ -26,7 +26,7 @@ The pipeline follows a modular RAG design:
 
 ## Pipeline Architecture Diagram
 
-Below is a flowchart illustrating the RAG pipeline's workflow, rendered using Mermaid syntax. You can view this diagram in GitHub (which supports Mermaid) or paste it into the [Mermaid Live Editor](https://mermaid.live/) for visualization.
+Below is a flowchart illustrating the RAG pipeline's workflow.
 
 ```mermaid
 graph TD
