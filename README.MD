@@ -107,7 +107,6 @@ graph TD
    - **Who is the CEO of QuantumCore Solutions?** → Expected: `Dr. Elena Ruiz`
    - **What are the products offered by NeoCompute Technologies?** → Expected: `NeoCloud, NeoSecure`
    - **Who is the CIO of NeoCompute Technologies?** → Expected: `The answer could not be found in the text.`
-   - **Who is the CEO of NeoCompute Technologies?** → Expected: `The answer could not be found in the text.`
    - **What is the qubit count of QubitCore?** → Expected: `50-qubit superconducting architecture`
    - **What compliance standards does NeoCompute follow?** → Expected: `ISO/IEC 27001, SOC 2 Type II`
 
