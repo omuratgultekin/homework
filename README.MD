@@ -24,6 +24,34 @@ The pipeline follows a modular RAG design:
 4. **Augmentation**: Combines top 3 chunks (up to 500 characters) with the query using a Few-Shot `PromptTemplate`.
 5. **Generation**: Uses `google/flan-t5-base` to generate concise answers, with post-processing for roles and product lists.
 
+## Pipeline Architecture Diagram
+
+Below is a flowchart illustrating the RAG pipeline's workflow, rendered using Mermaid syntax. You can view this diagram in GitHub (which supports Mermaid) or paste it into the [Mermaid Live Editor](https://mermaid.live/) for visualization.
+
+```mermaid
+graph TD
+    A[User Query] -->|Input| B[Query Encoding]
+    B -->|lightonai/GTE-ModernColBERT-v1| C[Query Embedding]
+    
+    D[PDF Datasets<br>QuantumCore & NeoCompute] -->|PyPDFLoader| E[Document Loading]
+    E -->|RecursiveCharacterTextSplitter<br>200-char chunks, 25-char overlap| F[Text Chunks]
+    F -->|lightonai/GTE-ModernColBERT-v1| G[Chunk Embeddings]
+    G -->|Voyager Index| H[Knowledge Base]
+    
+    C -->|retrieve.ColBERT<br>Top 15 Chunks| I[Initial Retrieval]
+    I -->|Company Filtering<br>QuantumCore/NeoCompute| J[Filtered Chunks]
+    J -->|rank.rerank<br>Top 3 Chunks| K[Reranked Chunks]
+    
+    K -->|Up to 500 chars| L[Context]
+    A --> L
+    L -->|Few-Shot PromptTemplate| M[Augmented Prompt]
+    
+    M -->|google/flan-t5-base| N[Text Generation]
+    N -->|Post-Processing<br>Roles, Products, Deduplication| O[Final Answer]
+    
+    O --> P[Output to User<br>Context + Answer]
+```
+
 ## Requirements
 
 - Python 3.10+
@@ -100,6 +128,7 @@ For each query, the system displays:
 - **PDF Not Found**: Ensure PDFs are in the `/data` directory or upload them when prompted in Colab.
 - **Pipeline Initialization Failure**: Check that all dependencies are installed and PDFs contain valid content.
 - **No Relevant Documents**: Verify query keywords (e.g., "QuantumCore" or "NeoCompute") match the PDF content.
+- **Diagram Not Rendering**: Ensure you're using a Mermaid-compatible viewer (e.g., GitHub, Mermaid Live Editor).
 
 ## License
 
