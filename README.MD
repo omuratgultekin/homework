@@ -33,7 +33,7 @@ graph TD
     A[User Query] -->|Input| B[Query Encoding]
     B -->|lightonai/GTE-ModernColBERT-v1| C[Query Embedding]
     
-    D[PDF Datasets<br>QuantumCore & NeoCompute] -->|PyPDFLoader| E[Document Loading]
+    D[PDF Datasets<br>QuantumCore and NeoCompute] -->|PyPDFLoader| E[Document Loading]
     E -->|RecursiveCharacterTextSplitter<br>200-char chunks, 25-char overlap| F[Text Chunks]
     F -->|lightonai/GTE-ModernColBERT-v1| G[Chunk Embeddings]
     G -->|Voyager Index| H[Knowledge Base]
