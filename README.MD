@@ -79,6 +79,7 @@ graph TD
      ```
 
 3. **Prepare PDF Datasets**:
+
    - Place the PDF files (`QuantumCore_Solutions_RAG_Demo_Dataset_v1.pdf` and `NeoCompute_Technologies_RAG_Demo_Dataset_v2.pdf`) in the `/data` directory.
    - If running in Google Colab, the notebook will prompt you to upload the PDFs if they are not found.
 
@@ -129,7 +130,7 @@ For each query, the system displays:
 - **PDF Not Found**: Ensure PDFs are in the `/data` directory or upload them when prompted in Colab.
 - **Pipeline Initialization Failure**: Check that all dependencies are installed and PDFs contain valid content.
 - **No Relevant Documents**: Verify query keywords (e.g., "QuantumCore" or "NeoCompute") match the PDF content.
-- **Diagram Not Rendering**: Ensure you're using a Mermaid-compatible viewer (e.g., GitHub, Mermaid Live Editor).
+
 
 ## License
 
