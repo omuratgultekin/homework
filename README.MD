@@ -47,9 +47,10 @@ graph TD
     L -->|Few-Shot PromptTemplate| M[Augmented Prompt]
     
     M -->|google/flan-t5-base| N[Text Generation]
-    N -->|Post-Processing<br>Roles, Products, Deduplication| O[Final Answer]
+    N -->|<br>Roles, Products, Deduplication| O[Final Answer]
     
     O --> P[Output to User<br>Context + Answer]
+
 ```
 
 ## Requirements
