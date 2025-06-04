@@ -52,6 +52,7 @@ graph TD
     O --> P[Output to User<br>Context + Answer]
 
 ```
+<img src="Diagramall.drawio.png" alt="Architecture Diagram" width="300" height="200"/>
 
 ## Requirements
 
