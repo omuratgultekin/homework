@@ -26,14 +26,14 @@ The pipeline follows a modular RAG design:
 
 ## Pipeline Architecture Diagram
 
-Below is a flowchart illustrating the RAG pipeline's workflow, rendered using Mermaid syntax. You can view this diagram in GitHub (which supports Mermaid) or paste it into the [Mermaid Live Editor](https://mermaid.live/) for visualization.
+Below is a flowchart illustrating the RAG pipeline's workflow.
 
 ```mermaid
 graph TD
     A[User Query] -->|Input| B[Query Encoding]
     B -->|lightonai/GTE-ModernColBERT-v1| C[Query Embedding]
     
-    D[PDF Datasets<br>QuantumCore & NeoCompute] -->|PyPDFLoader| E[Document Loading]
+    D[PDF Datasets<br>QuantumCore and NeoCompute] -->|PyPDFLoader| E[Document Loading]
     E -->|RecursiveCharacterTextSplitter<br>200-char chunks, 25-char overlap| F[Text Chunks]
     F -->|lightonai/GTE-ModernColBERT-v1| G[Chunk Embeddings]
     G -->|Voyager Index| H[Knowledge Base]
@@ -79,6 +79,7 @@ graph TD
      ```
 
 3. **Prepare PDF Datasets**:
+
    - Place the PDF files (`QuantumCore_Solutions_RAG_Demo_Dataset_v1.pdf` and `NeoCompute_Technologies_RAG_Demo_Dataset_v2.pdf`) in the `/data` directory.
    - If running in Google Colab, the notebook will prompt you to upload the PDFs if they are not found.
 
@@ -106,7 +107,6 @@ graph TD
    - **Who is the CEO of QuantumCore Solutions?** → Expected: `Dr. Elena Ruiz`
    - **What are the products offered by NeoCompute Technologies?** → Expected: `NeoCloud, NeoSecure`
    - **Who is the CIO of NeoCompute Technologies?** → Expected: `The answer could not be found in the text.`
-   - **Who is the CEO of NeoCompute Technologies?** → Expected: `The answer could not be found in the text.`
    - **What is the qubit count of QubitCore?** → Expected: `50-qubit superconducting architecture`
    - **What compliance standards does NeoCompute follow?** → Expected: `ISO/IEC 27001, SOC 2 Type II`
 
@@ -129,7 +129,7 @@ For each query, the system displays:
 - **PDF Not Found**: Ensure PDFs are in the `/data` directory or upload them when prompted in Colab.
 - **Pipeline Initialization Failure**: Check that all dependencies are installed and PDFs contain valid content.
 - **No Relevant Documents**: Verify query keywords (e.g., "QuantumCore" or "NeoCompute") match the PDF content.
-- **Diagram Not Rendering**: Ensure you're using a Mermaid-compatible viewer (e.g., GitHub, Mermaid Live Editor).
+
 
 ## License
 
