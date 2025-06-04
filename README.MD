@@ -52,7 +52,7 @@ graph TD
     O --> P[Output to User<br>Context + Answer]
 
 ```
-<img src="Diagramall.drawio.html" alt="Architecture Diagram" width="300" height="200"/>
+<img src="Diagramal.drawio.html" alt="Architecture Diagram" width="300" height="200"/>
 
 ## Requirements
 
